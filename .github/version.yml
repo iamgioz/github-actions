@@ -1,0 +1,11 @@
+name: Push a new tag and create release
+
+on:
+  workflow_dispatch
+
+jobs:
+  bump-version-and-tag-release:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Print current release version to console
+        run: echo Current Release Version is ${{ github.event.release.tag_name }}
