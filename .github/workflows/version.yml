@@ -17,7 +17,7 @@ jobs:
         id: semantic
         uses: PaulHatch/semantic-version@v5.3.0
         with:
-#          tag_prefix: "v"
+          tag_prefix: "v"
           major_pattern: "(major)"
           # A string which indicates the flags used by the `major_pattern` regular expression. Supported flags: idgs
           major_regexp_flags: ""
@@ -29,56 +29,56 @@ jobs:
       - name: Print current release version to console
         run: echo Current Release Version is ${{ github.event.release.tag_name }}
 
-      - name: actor
-        run: |
-          echo "The job_id is: $GITHUB_JOB"   
-          echo "The id of this action is: $GITHUB_ACTION"
-          echo "The run id is: $GITHUB_RUN_ID" 
-          echo "The GitHub Actor's username is: $GITHUB_ACTOR"
+#      - name: actor
+#        run: |
+#          echo "The job_id is: $GITHUB_JOB"
+#          echo "The id of this action is: $GITHUB_ACTION"
+#          echo "The run id is: $GITHUB_RUN_ID"
+#          echo "The GitHub Actor's username is: $GITHUB_ACTOR"
 
       - name: Tag
         run: |
-          echo " SEMVER is ${{ steps.semantic.outputs.version  }}"
+          echo " SEMVER is ${{ steps.semantic.outputs.version }}"
           tag=${{ steps.semantic.outputs.version  }}
           message='${{ steps.semantic.outputs.version }}'
           git config user.name "${GITHUB_ACTOR}"
           git config user.email "${GITHUB_ACTOR}@gmail.com"
-          git tag -a "${tag}" -m "${message}"
-          git push origin "${tag}"
+          git tag -a "v${tag}" -m "${message}"
+          git push origin "v${tag}"
 
       - name: Build Changelog
         id: github_release
-        uses: mikepenz/release-changelog-builder-action@v3
+        uses: mikepenz/release-changelog-builder-action@v4.1.1
         with:
           configurationJson: |
             {
               "categories": [
-                  {
-                    "title": "## 🚀 Features",
-                    "labels": ["feature"]
-                  },
-                  {
-                    "title": "## 🐛 Bugfixes",
-                    "labels": ["bugfix"]
-                  },
-                  {
-                    "title": "## 🪄 Enhancements",
-                    "labels": ["enhancement"]
-                  },
-                  {
-                    "title": "## 🧪 Tests,
-                    "labels": ["test"],
-                    "exhaustive": true,
-                    "exhaustive_rules": "false",
-                    "empty_content": "- no matching PRs",
-                    "rules": [
-                      {
-                        "pattern": "open",
-                        "on_property": "status",
-                        "flags": "gu"
-                      }
-                    ]
-                  }
+                {
+                  "title": "## 🚀 Features",
+                  "labels": ["feature"]
+                },
+                {
+                  "title": "## 🐛 Bugfixes",
+                  "labels": ["bugfix"]
+                },
+                {
+                  "title": "## 🪄 Enhancements",
+                  "labels": ["enhancement"]
+                },
+                {
+                  "title": "## 🧪 Tests,
+                  "labels": ["test"],
+                  "exhaustive": true,
+                  "exhaustive_rules": "false",
+                  "empty_content": "- no matching PRs",
+                  "rules": [
+                    {
+                      "pattern": "open",
+                      "on_property": "status",
+                      "flags": "gu"
+                    }
+                  ]
+                }
               ],
                 "ignore_labels": [
                   "ignore"
