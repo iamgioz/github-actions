@@ -44,7 +44,7 @@ jobs:
           git config user.name "${GITHUB_ACTOR}"
           git config user.email "${GITHUB_ACTOR}@gmail.com"
           git tag -a "v${tag}" -m "${message}"
-          git push origin "${tag}"
+          git push origin "v${tag}"
 
       - name: Build Changelog
         id: github_release
