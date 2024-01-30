@@ -89,9 +89,9 @@ jobs:
                 }
             }
 
-      - name: Create Release
-        uses: ncipollo/release-action@v1.13.0
-        with:
-          generateReleaseNotes: true
-          tag: ${{ steps.semantic.outputs.version }}
-          body: ${{ steps.github_release.outputs.changelog }}
+#      - name: Create Release
+#        uses: ncipollo/release-action@v1.13.0
+#        with:
+#          generateReleaseNotes: true
+#          tag: ${{ steps.semantic.outputs.version }}
+#          body: ${{ steps.github_release.outputs.changelog }}
