@@ -17,7 +17,7 @@ jobs:
           fetch-depth: 0
 
       - name: Git Semantic Version
-        id: semantic
+        id: generate-version
         uses: PaulHatch/semantic-version@v5.4.0
         with:
           tag_prefix: "v"
@@ -26,7 +26,7 @@ jobs:
           major_regexp_flags: ""
           # Same as above except indicating a minor change, supports regular expressions wrapped with '/'
           minor_pattern: "[x] Minor"
-          bump_each_commit: true
+          # bump_each_commit: true
           search_commit_body: true
           debug: true
 
@@ -40,11 +40,14 @@ jobs:
 #          echo "The run id is: $GITHUB_RUN_ID"
 #          echo "The GitHub Actor's username is: $GITHUB_ACTOR"
 
+#      - name: Create tag and push
+#        run: git tag ${{ steps.generate-version.outputs.version }} && git push --tags
+
       - name: Tag
         run: |
-          echo " SEMVER is ${{ steps.semantic.outputs.version }}"
-          tag=${{ steps.semantic.outputs.version  }}
-          message='${{ steps.semantic.outputs.version }}'
+          echo " SEMVER is ${{ steps.generate-version.outputs.version }}"
+          tag=${{ steps.generate-version.outputs.version  }}
+          message='${{ steps.generate-version.outputs.version }}'
           git config user.name "${GITHUB_ACTOR}"
           git config user.email "${GITHUB_ACTOR}@gmail.com"
           git tag -a "v${tag}" -m "${message}"
