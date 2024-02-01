@@ -1,5 +1,5 @@
-**🤔 This is a ...**
+**🤔 This change is...**
 
-- [ ] Breaking change
-- [ ] New feature
-- [ ] Bug fix
+- [ ] Major / Breaking change
+- [ ] Minor / New feature w/out breaking anything
+- [x] Patch / Bug fix (to existing functionality)

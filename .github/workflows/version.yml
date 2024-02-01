@@ -1,7 +1,10 @@
 name: Push a new tag and create release
 
 on:
-  workflow_dispatch
+  # workflow_dispatch
+  push:
+    branches:
+      - main
 
 jobs:
   bump-version-and-tag-release:
@@ -18,11 +21,11 @@ jobs:
         uses: PaulHatch/semantic-version@v5.4.0
         with:
           tag_prefix: "v"
-          major_pattern: "(major)"
+          major_pattern: "[x] Major"
           # A string which indicates the flags used by the `major_pattern` regular expression. Supported flags: idgs
           major_regexp_flags: ""
           # Same as above except indicating a minor change, supports regular expressions wrapped with '/'
-          minor_pattern: "(minor)"
+          minor_pattern: "[x] Minor"
           bump_each_commit: true
           search_commit_body: true
           debug: true
