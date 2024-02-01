@@ -17,7 +17,7 @@ jobs:
           fetch-depth: 0
 
       - name: Git Semantic Version
-        id: generate-version
+        id: semver
         uses: PaulHatch/semantic-version@v5.4.0
         with:
           tag_prefix: "v"
@@ -41,13 +41,13 @@ jobs:
 #          echo "The GitHub Actor's username is: $GITHUB_ACTOR"
 
 #      - name: Create tag and push
-#        run: git tag ${{ steps.generate-version.outputs.version }} && git push --tags
+#        run: git tag ${{ steps.semver.outputs.version }} && git push --tags
 
       - name: Tag
         run: |
-          echo " SEMVER is ${{ steps.generate-version.outputs.version }}"
-          tag=${{ steps.generate-version.outputs.version  }}
-          message='${{ steps.generate-version.outputs.version }}'
+          echo " SEMVER is ${{ steps.semver.outputs.version }}"
+          tag=${{ steps.semver.outputs.version  }}
+          message='${{ steps.semver.outputs.version }}'
           git config user.name "${GITHUB_ACTOR}"
           git config user.email "${GITHUB_ACTOR}@gmail.com"
           git tag -a "v${tag}" -m "${message}"
@@ -100,5 +100,5 @@ jobs:
         uses: ncipollo/release-action@v1.13.0
         with:
           generateReleaseNotes: true
-          tag: ${{ steps.semantic.outputs.version }}
+          tag: ${{ steps.semver.outputs.version }}
           body: ${{ steps.github_release.outputs.changelog }}
