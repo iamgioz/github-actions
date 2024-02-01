@@ -23,7 +23,7 @@ jobs:
           major_regexp_flags: ""
           # Same as above except indicating a minor change, supports regular expressions wrapped with '/'
           minor_pattern: "(minor)"
-          # bump_each_commit: true
+          bump_each_commit: true
           search_commit_body: true
           debug: true
 
