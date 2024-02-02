@@ -44,7 +44,8 @@ jobs:
 #        run: git tag ${{ steps.semver.outputs.version }} && git push --tags
 
       - name: Tag
-        run: echo "SEMVER is ${{ steps.semver.outputs.version }}"
+        run: |
+          echo "SEMVER is ${{ steps.semver.outputs.version }}"
           tag=${{ steps.semver.outputs.version  }}
           message='${{ steps.semver.outputs.version }}'
           git config user.name "${GITHUB_ACTOR}"
