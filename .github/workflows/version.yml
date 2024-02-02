@@ -23,7 +23,7 @@ jobs:
           # tag_prefix: "v"
           major_pattern: "[x] Major"
           # A string which indicates the flags used by the `major_pattern` regular expression. Supported flags: idgs
-          major_regexp_flags: ""
+          # major_regexp_flags: ""
           # Same as above except indicating a minor change, supports regular expressions wrapped with '/'
           minor_pattern: "[x] Minor"
           # bump_each_commit: true
@@ -44,14 +44,13 @@ jobs:
 #        run: git tag ${{ steps.semver.outputs.version }} && git push --tags
 
       - name: Tag
-        run: |
-          echo " SEMVER is ${{ steps.semver.outputs.version }}"
+        run: echo "SEMVER is ${{ steps.semver.outputs.version }}"
           tag=${{ steps.semver.outputs.version  }}
           message='${{ steps.semver.outputs.version }}'
           git config user.name "${GITHUB_ACTOR}"
           git config user.email "${GITHUB_ACTOR}@gmail.com"
           git tag -a "${tag}" -m "${message}"
-          git push origin "v${tag}"
+          git push origin "${tag}"
 
       - name: Build Changelog
         id: github_release
