@@ -10,6 +10,8 @@ jobs:
   bump-version-and-tag-release:
     runs-on: ubuntu-latest
     steps:
+      - name: Print Context
+        run: echo "${{ toJSON(github) }}"
       - name: checkout
         uses: actions/checkout@v4
         with:
@@ -31,7 +33,9 @@ jobs:
           debug: true
 
       - name: Print current release version to console
-        run: echo Current Release Version is ${{ github.event.release.tag_name }}
+        run: |
+          echo Current Release Version is ${{ github.event.release.tag_name }}
+          echo ::set-output name=exit_code::$?
 
 #      - name: actor
 #        run: |
@@ -44,6 +48,7 @@ jobs:
 #        run: git tag ${{ steps.semver.outputs.version }} && git push --tags
 
       - name: Tag
+        if: success() #if: steps.semver.outcome == 'success'
         run: |
           echo "SEMVER is ${{ steps.semver.outputs.version }}"
           tag=${{ steps.semver.outputs.version  }}
