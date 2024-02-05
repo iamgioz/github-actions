@@ -28,12 +28,13 @@ jobs:
           minor_pattern: "[x] Minor"
           version_format: "v${major}.${minor}.${patch}"
           search_commit_body: true
+          # version_from_branch: true
           debug: true
 
       - name: Print current release version to console
         run: |
           echo Current Release Version is ${{ github.event.release.tag_name }}
-          echo "${{ steps.semver.outputs.debug_output }}"
+          echo "Debug: ${{ steps.semver.outputs.debug_output }}"
 
 #      - name: actor
 #        run: |
