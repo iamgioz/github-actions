@@ -26,15 +26,14 @@ jobs:
           tag_prefix: "v"
           major_pattern: "[x] Major"
           minor_pattern: "[x] Minor"
-          version_format: "v${major}.${minor}.${patch}-prerelease${increment}"
-          # bump_each_commit: true
+          version_format: "v${major}.${minor}.${patch}"
           search_commit_body: true
           debug: true
 
       - name: Print current release version to console
         run: |
           echo Current Release Version is ${{ github.event.release.tag_name }}
-          echo "{{ steps.semver.outputs }}"
+          echo "{{ steps.semver.outputs.debug_output }}"
 
 #      - name: actor
 #        run: |
@@ -49,7 +48,7 @@ jobs:
       - name: Tag
         if: success() #if: steps.semver.outcome == 'success'
         run: |
-          echo "SEMVER is v${{ steps.semver.outputs.version }}"
+          echo "SEMVER is ${{ steps.semver.outputs.version }}"
           tag=${{ steps.semver.outputs.version }}
           message='${{ steps.semver.outputs.version }}'
           git config user.name "${GITHUB_ACTOR}"
