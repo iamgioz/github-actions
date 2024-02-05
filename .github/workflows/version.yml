@@ -10,8 +10,9 @@ jobs:
   bump-version-and-tag-release:
     runs-on: ubuntu-latest
     steps:
-      - name: Print Context
-        run: echo "${{ toJSON(github) }}"
+      # - name: Print Context
+      #  run: echo "${{ toJSON(github) }}"
+
       - name: checkout
         uses: actions/checkout@v4
         with:
