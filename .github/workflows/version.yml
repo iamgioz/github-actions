@@ -33,7 +33,7 @@ jobs:
 
       - name: Print current release version to console
         run: |
-          echo "Debug: ${{ steps.semver.outputs.debug_output }}"
+          echo "Debug: ${{ toJSON(steps.semver.outputs.debug_output) }}"
 
 #      - name: actor
 #        run: |
