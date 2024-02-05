@@ -33,7 +33,7 @@ jobs:
       - name: Print current release version to console
         run: |
           echo Current Release Version is ${{ github.event.release.tag_name }}
-          echo "{{ steps.semver.outputs.debug_output }}"
+          echo "${{ steps.semver.outputs.debug_output }}"
 
 #      - name: actor
 #        run: |
