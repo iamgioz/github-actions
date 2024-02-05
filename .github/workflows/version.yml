@@ -48,8 +48,8 @@ jobs:
       - name: Tag
         if: success() #if: steps.semver.outcome == 'success'
         run: |
-          echo "SEMVER is ${{ steps.semver.outputs.version }}"
-          tag=${{ steps.semver.outputs.version  }}
+          echo "SEMVER is v${{ steps.semver.outputs.version }}"
+          tag=${{ steps.semver.outputs.version }}
           message='${{ steps.semver.outputs.version }}'
           git config user.name "${GITHUB_ACTOR}"
           git config user.email "${GITHUB_ACTOR}@gmail.com"
