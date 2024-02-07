@@ -24,16 +24,16 @@ jobs:
         uses: PaulHatch/semantic-version@v5.4.0
         with:
           tag_prefix: "v"
-          major_pattern: "[x] Major"
-          minor_pattern: "[x] Minor"
+          major_pattern: "(major)"
+          minor_pattern: "(minor)"
           version_format: "v${major}.${minor}.${patch}"
           search_commit_body: true
           # version_from_branch: true
-          debug: true
+          # debug: true
 
-      - name: Print current release version to console
-        run: |
-          echo "Debug: ${{ fromJSON(steps.semver.outputs.debug_output) }}"
+#      - name: Print current release version to console
+#        run: |
+#          echo "Debug: ${{ fromJSON(steps.semver.outputs.debug_output) }}"
 
 #      - name: actor
 #        run: |
@@ -68,8 +68,8 @@ jobs:
                   "labels": ["feature"]
                 },
                 {
-                  "title": "## 🐛 Bugfixes",
-                  "labels": ["bugfix"]
+                  "title": "## 🐛 Fixes",
+                  "labels": ["fix"]
                 },
                 {
                   "title": "## 🪄 Enhancements",
