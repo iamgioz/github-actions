@@ -13,7 +13,7 @@ jobs:
       # - name: Print Context
       #  run: echo "${{ toJSON(github) }}"
 
-      - name: checkout
+      - name: Checkout
         uses: actions/checkout@v4
         with:
           # required by PaulHatch/semantic-version
@@ -45,10 +45,9 @@ jobs:
 #      - name: Create tag and push
 #        run: git tag ${{ steps.semver.outputs.version }} && git push --tags
 
-      - name: Tag
+      - name: Create Tag
         if: success() #if: steps.semver.outcome == 'success'
         run: |
-          echo "SEMVER is ${{ steps.semver.outputs.version }}"
           tag=${{ steps.semver.outputs.version }}
           message='${{ steps.semver.outputs.version }}'
           git config user.name "${GITHUB_ACTOR}"
@@ -86,9 +85,13 @@ jobs:
                 "on_property": "mergedAt"
               }
             },
-            base_branches: [],
+            base_branches: ["main"],
+      - name: Echo Configuration Build Changelog
+        env:
+          CHANGELOG: ${{ steps.without_checkout.outputs.changelog }}
+        run: echo "CHANGELOG"
 
-      - name: Create Release
+      - name: Create Release Note
         uses: ncipollo/release-action@v1.14.0
         with:
           generateReleaseNotes: true
