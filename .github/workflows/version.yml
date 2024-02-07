@@ -78,7 +78,7 @@ jobs:
                 {
                   title: '## Uncategorized 📦',
                   labels: []
-                },
+                }
 #                {
 #                  "title": "## Tests 🧪,
 #                  "labels": ["test"],
