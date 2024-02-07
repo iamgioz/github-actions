@@ -13,7 +13,7 @@ jobs:
       # - name: Print Context
       #  run: echo "${{ toJSON(github) }}"
 
-      - name: Checkout
+      - name: Checkout Code
         uses: actions/checkout@v4
         with:
           # required by PaulHatch/semantic-version
@@ -94,4 +94,4 @@ jobs:
         with:
           generateReleaseNotes: true
           tag: ${{ steps.semver.outputs.version }}
-          body: ${{ steps.changelog.outputs.changelog }}
+          body: ${{ steps.changelog.outputs.changes }}
