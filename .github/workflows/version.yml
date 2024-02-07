@@ -87,9 +87,7 @@ jobs:
             },
             base_branches: ["main"],
       - name: Echo Configuration Build Changelog
-        env:
-          CHANGELOG: ${{ steps.without_checkout.outputs.changelog }}
-        run: echo "CHANGELOG"
+        run: echo "${{ steps.without_checkout.outputs.changelog }}"
 
       - name: Create Release Note
         uses: ncipollo/release-action@v1.14.0
