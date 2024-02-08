@@ -92,7 +92,6 @@ jobs:
       - name: Create Release Note
         uses: ncipollo/release-action@v1.14.0
         with:
-          generateReleaseNotes: false
           tag: ${{ steps.semver.outputs.version }}
           body: ${{ steps.changelog.outputs.changelog }}
           removeArtifacts: true
