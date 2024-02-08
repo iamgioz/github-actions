@@ -83,9 +83,9 @@ jobs:
               "sort": {
                 "order": "ASC",
                 "on_property": "mergedAt"
-              }
-            },
-            base_branches: ["main"],
+              },
+              "base_branches": ["development"],
+            }
       - name: Echo Configuration Build Changelog
         run: echo "${{ steps.without_checkout.outputs.changelog }}"
 
@@ -93,5 +93,5 @@ jobs:
         uses: ncipollo/release-action@v1.14.0
         with:
           tag: ${{ steps.semver.outputs.version }}
-          body: ${{ steps.changelog.outputs.changelog }}
+          # body: ${{ steps.changelog.outputs.changelog }}
           removeArtifacts: true
