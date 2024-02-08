@@ -64,18 +64,21 @@ jobs:
               "categories": [
                 {
                   "title": "## Features 🚀",
-                  "labels": ["feature"]
+                  "labels": ["feature"],
+                  "exhaustive": true
                 },
                 {
                   "title": "## Bug Fixes 🐛",
-                  "labels": ["bug"]
+                  "labels": ["bug"],
+                  "exhaustive": true
                 },
                 {
                   "title": "## Improvements 🙌",
-                  "labels": ["enhancement"]
+                  "labels": ["enhancement"],
+                  "exhaustive": true
                 },
                 {
-                  title: '## Uncategorized 📦',
+                  title: '## Other changes 📦',
                   labels: []
                 }
               ],
@@ -84,6 +87,7 @@ jobs:
                 "order": "ASC",
                 "on_property": "mergedAt"
               },
+              "pr_template": "- #{{TITLE}} (#{{URL}}) by #{{AUTHOR}}",
               "base_branches": ["development"],
             }
       - name: Echo Configuration Build Changelog
