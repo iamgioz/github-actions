@@ -83,9 +83,9 @@ jobs:
               "sort": {
                 "order": "ASC",
                 "on_property": "mergedAt"
-              }
-            },
-            base_branches: ["main"],
+              },
+              "base_branches": ["development"],
+            }
       - name: Echo Configuration Build Changelog
         run: echo "${{ steps.without_checkout.outputs.changelog }}"
 
