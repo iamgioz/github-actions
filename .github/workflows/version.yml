@@ -62,10 +62,10 @@ jobs:
           configurationJson: |
             {
               "template": "#{{CHANGELOG}}",
-              "pr_template": "- #{{TITLE}} (#{{URL}})", 
+              "pr_template": "- #{{TITLE}} (#{{URL}}) by #{{AUTHOR}}", 
               "categories": [
                 {
-                    "title": "## Bugfixes",
+                    "title": "## Bug Fixes",
                     "labels": ["bug", "fix"]
                 },
                 {
