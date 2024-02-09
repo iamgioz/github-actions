@@ -61,8 +61,8 @@ jobs:
         with:
           configurationJson: |
             {
-              "template": "#{{CHANGELOG}}\n\n<details>\n<summary>Uncategorized!!!</summary>\n\n#{{UNCATEGORIZED}}\n</details>",
-              "pr_template": "#{{URL}}", 
+              "template": "#{{CHANGELOG}}\n\nSUMMARY",
+              "pr_template": "- #{{TITLE}} (#{{URL}})", 
               "categories": [
                 {
                     "title": "## 💬 Other",
