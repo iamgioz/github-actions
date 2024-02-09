@@ -75,6 +75,10 @@ jobs:
                 {
                   "title": "## New Features",
                   "labels": ["feature"]
+                },
+                {
+                  "title": "## BREAKING CHANGES",
+                  "labels": ["major"]
                 }
               ]
             }
