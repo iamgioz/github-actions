@@ -61,7 +61,7 @@ jobs:
         with:
           configurationJson: |
             {
-              "template": "#What is changed\n\n#{{CHANGELOG}}",
+              "template": "#{{CHANGELOG}}",
               "pr_template": "- #{{TITLE}} (#{{URL}})", 
               "categories": [
                 {
@@ -73,8 +73,8 @@ jobs:
                   "labels": ["enhancement"]
                 },
                 {
-                    "title": "## Dependencies",
-                    "labels": ["dependencies"]
+                  "title": "## Dependencies",
+                  "labels": ["dependencies"]
                 }
               ]
             }
