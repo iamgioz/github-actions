@@ -79,6 +79,10 @@ jobs:
                 {
                   "title": "## BREAKING CHANGES",
                   "labels": ["major"]
+                },
+                {
+                  "title": "## Changes",
+                  "labels": []
                 }
               ]
             }
