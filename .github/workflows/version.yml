@@ -10,9 +10,6 @@ jobs:
   bump-version-and-tag-release:
     runs-on: ubuntu-latest
     steps:
-      # - name: Print Context
-      #  run: echo "${{ toJSON(github) }}"
-
       - name: Checkout Code
         uses: actions/checkout@v4
         with:
@@ -86,8 +83,6 @@ jobs:
                 }
               ]
             }
-#      - name: Echo Configuration Build Changelog
-#        run: echo "${{ steps.without_checkout.outputs.changelog }}"
 
       - name: Create Release Note
         uses: ncipollo/release-action@v1.14.0
