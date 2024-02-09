@@ -65,16 +65,16 @@ jobs:
               "pr_template": "- #{{TITLE}} (#{{URL}})", 
               "categories": [
                 {
-                    "title": "## Other",
-                    "labels": ["other"]
+                    "title": "## Bugfixes",
+                    "labels": ["bug", "fix"]
                 },
                 {
                   "title": "## Enhancements",
                   "labels": ["enhancement"]
                 },
                 {
-                  "title": "## Dependencies",
-                  "labels": ["dependencies"]
+                  "title": "## New Features",
+                  "labels": ["feature"]
                 }
               ]
             }
