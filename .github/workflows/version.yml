@@ -61,7 +61,7 @@ jobs:
         with:
           configurationJson: |
             {
-              "template": "#{{CHANGELOG}}\n\nSUMMARY",
+              "template": "#What is changed\n\n#{{CHANGELOG}}",
               "pr_template": "- #{{TITLE}} (#{{URL}})", 
               "categories": [
                 {
