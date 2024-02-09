@@ -61,24 +61,16 @@ jobs:
         with:
           configurationJson: |
             {
-              "template": "#{{CHANGELOG}}\n\n<details>\n<summary>Uncategorized!-!</summary>\n\n#{{UNCATEGORIZED}}\n</details>",
+              "template": "#{{CHANGELOG}}\n\n<details>\n<summary>Uncategorized!!!</summary>\n\n#{{UNCATEGORIZED}}\n</details>",
               "pr_template": "#{{URL}}", 
               "categories": [
                 {
-                  "title": "## !Features",
-                  "labels": ["feature"],
+                    "title": "## 💬 Other",
+                    "labels": ["other"]
                 },
                 {
-                  "title": "## !Bug Fixes",
-                  "labels": ["bug"],
-                },
-                {
-                  "title": "## !Improvements",
-                  "labels": ["enhancement"]
-                },
-                {
-                  "title": "## 💬 Other",
-                  "labels": ["other"]
+                    "title": "## Dependencies",
+                    "labels": ["dependencies"]
                 }
               ]
             }
