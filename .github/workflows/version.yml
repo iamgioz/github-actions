@@ -63,22 +63,22 @@ jobs:
             {
               "categories": [
                 {
-                  "title": "## Features 🚀",
+                  "title": "## Features",
                   "labels": ["feature"],
                   "exhaustive": true
                 },
                 {
-                  "title": "## Bug Fixes 🐛",
+                  "title": "## Bug Fixes",
                   "labels": ["bug"],
                   "exhaustive": true
                 },
                 {
-                  "title": "## Improvements 🙌",
+                  "title": "## Improvements",
                   "labels": ["enhancement"],
                   "exhaustive": true
                 },
                 {
-                  title: '## Other changes 📦',
+                  title: '## Other changes',
                   labels: []
                 }
               ],
@@ -86,9 +86,7 @@ jobs:
               "sort": {
                 "order": "ASC",
                 "on_property": "mergedAt"
-              },
-              "pr_template": "- #{{TITLE}} (#{{URL}}) by #{{AUTHOR}}",
-              "base_branches": ["development"],
+              }
             }
       - name: Echo Configuration Build Changelog
         run: echo "${{ steps.without_checkout.outputs.changelog }}"
