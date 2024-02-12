@@ -25,25 +25,12 @@ jobs:
           minor_pattern: "(minor)"
           version_format: "v${major}.${minor}.${patch}"
           search_commit_body: true
-          # version_from_branch: true
-          # debug: true
-
-#      - name: Print current release version to console
-#        run: |
-#          echo "Debug: ${{ fromJSON(steps.semver.outputs.debug_output) }}"
-
-#      - name: actor
-#        run: |
-#          echo "The job_id is: $GITHUB_JOB"
-#          echo "The id of this action is: $GITHUB_ACTION"
-#          echo "The run id is: $GITHUB_RUN_ID"
-#          echo "The GitHub Actor's username is: $GITHUB_ACTOR"
 
 #      - name: Create tag and push
 #        run: git tag ${{ steps.semver.outputs.version }} && git push --tags
 
       - name: Create Tag
-        if: success() #if: steps.semver.outcome == 'success'
+        # if: success() #if: steps.semver.outcome == 'success'
         run: |
           tag=${{ steps.semver.outputs.version }}
           message='${{ steps.semver.outputs.version }}'
